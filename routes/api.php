@@ -19,8 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/threads', [ThreadController::class, 'index']);
-Route::post('/threads', [ThreadController::class, 'store']);
-Route::get('/threads/{id}', [ThreadController::class, 'show']);
 
-Route::post('/threads/{threadId}/responses', [ResponseController::class, 'store']);
+// メモ全件取得
+Route::get('/memos', [MemoController::class, 'fetch']);
+
+// メモ登録
+Route::post('/memos', [MemoController::class, 'create']);
